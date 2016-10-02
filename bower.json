@@ -1,0 +1,18 @@
+{
+  "name": "neighborhood-map",
+  "description": "Milan Neighborhood Map",
+  "main": "index.js",
+  "authors": [
+    "dsteb"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dsteb/neighborhood-map",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

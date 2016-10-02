@@ -1,0 +1,23 @@
+{
+  "name": "neighborhood-map",
+  "version": "1.0.0",
+  "description": "Milan Neighborhood Map",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.7.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsteb/neighborhood-map.git"
+  },
+  "author": "dsteb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dsteb/neighborhood-map/issues"
+  },
+  "homepage": "https://github.com/dsteb/neighborhood-map#readme"
+}
