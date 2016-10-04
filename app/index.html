@@ -41,9 +41,8 @@
             </button>
           </span>
         </div>
-        <ul class="nav navbar-nav nav-pills nav-stacked">
-          <li><a href="#">Duomo di Milano</a></li>
-          <li><a href="#">San Siro</a></li>
+        <ul class="nav navbar-nav nav-pills nav-stacked" data-bind="foreach: places">
+          <li><a href="#" data-bind="text: name"></a></li>
         </ul>
       </div>      
     </aside>

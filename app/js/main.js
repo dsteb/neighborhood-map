@@ -4,7 +4,10 @@ var app = app || {};
 
   'use strict';
 
-  function Place() {}
+  function Place(place) {
+    this.name = place.name;
+  }
+
   Place.cityLocation = {
     lat:  45.464211, 
     lng: 9.191383,
@@ -19,14 +22,28 @@ var app = app || {};
     return map;
   }
 
+  function handleError(response, msg) {
+    console.error(response, msg);
+    alert('Error')
+  }
+
   function AppViewModel(map) {
     var self = this;
     self.appName = 'Milan Neighborhood';
+    self.places = ko.observableArray();
+
+    $.get('js/model.json')
+      .done(processModel)
+      .fail(handleError);
+
+    function processModel(data) {
+      var places = data.map(function(p) {return new Place(p)});
+      places.forEach(function(p) {self.places.push(p)});
+    }
   }
 
   app.onLoad = function() {
     var map = initGoogleMap();
     ko.applyBindings(new AppViewModel(map));
   };
-
 })();
