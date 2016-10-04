@@ -4,20 +4,29 @@ var app = app || {};
 
   'use strict';
 
+  function Place() {}
+  Place.cityLocation = {
+    lat:  45.464211, 
+    lng: 9.191383,
+  };
+
   function initGoogleMap() {
     var uluru = {lat: -25.363, lng: 131.044};
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
-      center: uluru
+      zoom: 13,
+      center: Place.cityLocation,
     });
-    var marker = new google.maps.Marker({
-      position: uluru,
-      map: map
-    });
+    return map;
+  }
+
+  function AppViewModel(map) {
+    var self = this;
+    self.appName = 'Milan Neighborhood';
   }
 
   app.onLoad = function() {
-    initGoogleMap();
+    var map = initGoogleMap();
+    ko.applyBindings(new AppViewModel(map));
   };
 
 })();

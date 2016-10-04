@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Milan Neighborhood Map</title>
+    <title data-bind="text: appName">Milan Neighborhood Map</title>
 
     <!-- Bootstrap -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="nabar-header">
-          <a href="#" class="navbar-brand">Milan Neighborhood</a>
+          <a href="#" class="navbar-brand" data-bind="text: appName"></a>
         </div>
         <button type="button" class="btn btn-default navbar-btn" aria-label="left Align">
           <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
@@ -49,9 +49,6 @@
     </aside>
   
     <div id="map"></div>
-
-
-
 
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
