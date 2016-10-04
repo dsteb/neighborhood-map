@@ -15,6 +15,7 @@ var app = app || {};
 
   function Place(place) {
     this.name = place.name;
+    this.wikiSearch = place.wikiSearch;
   }
 
   Place.cityLocation = {
@@ -63,21 +64,41 @@ var app = app || {};
   }
 
   function createMarker(map, place, data) {
+    var address = data.formatted_address;
     var marker = new google.maps.Marker({
-      title: data.formatted_address,
+      title: address,
       map: map,
       animation: google.maps.Animation.DROP,
       position: data.geometry.location,
     });
-    marker.addListener('click', onMarkerSelect);
-    var contentString = '<h1>Heelllo</h1>';
+    
+    getWikiInfo(map, place, marker, address);
+  }
+
+  function getWikiInfo(map, place, marker, address) {
+    var url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles={0}&origin=*';
+    url = url.format(place.wikiSearch || place.name);
+    $.getJSON(url)
+      .done(function(data) {
+        var obj = data.query.pages;
+        for (var key in obj) {
+          if (obj.hasOwnProperty(key)) break;
+        }
+        processWikiInfo(map, obj[key], marker, address)
+      })
+  }
+
+  function processWikiInfo(map, wiki, marker, address) {
+    var contentString = $('#info-window-template').html();
+    contentString = contentString.format(address, wiki.title, wiki.extract);
     var infoWindow = new google.maps.InfoWindow({
       content: contentString,
     });
+    marker.addListener('click', function() {onMarkerSelect(map, marker, infoWindow);});
+  }
 
-    function onMarkerSelect() {
-      infoWindow.open(map, marker);
-    }
+  function onMarkerSelect(map, marker, infoWindow) {
+    infoWindow.open(map, marker);
   }
 
   app.onLoad = function() {
