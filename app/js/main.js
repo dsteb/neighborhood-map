@@ -51,31 +51,32 @@ var app = app || {};
     var places = data.map(function(p) {return new Place(p);});
     places.forEach(function(place) {
       viewModel.places.push(place);
-      getGeoData(map, place);
+      Place.prototype.map = map;
+      getGeoData(place);
     });
   }
 
-  function getGeoData(map, place) {
+  function getGeoData(place) {
     var url = 'https://maps.googleapis.com/maps/api/geocode/json?address={0}, {1}&key=' + app.key;
     url = url.format(place.name, Place.city);
     $.getJSON(url)
-      .done(function(data) { createMarker(map, place, data.results[0]);})
+      .done(function(data) { createMarker(place, data.results[0]);})
       .fail(handleError);
   }
 
-  function createMarker(map, place, data) {
-    var address = data.formatted_address;
-    var marker = new google.maps.Marker({
-      title: address,
-      map: map,
+  function createMarker(place, data) {
+    place.geo = data;
+    place.marker = new google.maps.Marker({
+      title: data.formatted_address,
+      map: place.map,
       animation: google.maps.Animation.DROP,
       position: data.geometry.location,
     });
     
-    getWikiInfo(map, place, marker, address);
+    getWikiInfo(place);
   }
 
-  function getWikiInfo(map, place, marker, address) {
+  function getWikiInfo(place) {
     var url = 'https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles={0}&origin=*';
     url = url.format(place.wikiSearch || place.name);
     $.getJSON(url)
@@ -84,21 +85,35 @@ var app = app || {};
         for (var key in obj) {
           if (obj.hasOwnProperty(key)) break;
         }
-        processWikiInfo(map, obj[key], marker, address)
-      })
+        place.wiki = obj[key];
+        getImage(place);
+      });
   }
 
-  function processWikiInfo(map, wiki, marker, address) {
+  function getImage(place) {
+    var url = 'https://maps.googleapis.com/maps/api/streetview?size=800x300&location={0},{1}&heading={2}&pitch={3}&fov={4}&key=' + app.key;
+    place.image = place.image || {};
+    var lat = place.image.lat || place.geo.geometry.location.lat;
+    var lng = place.image.lng || place.geo.geometry.location.lng;
+    var heading = place.image.heading || '';
+    var pitch = place.image.pitch || '';
+    var fov = place.image.fov || '';
+    url = url.format(lat, lng,heading, pitch, fov);
+    createInfoWindow(place, url);
+  }
+
+  function createInfoWindow(place, src) {
     var contentString = $('#info-window-template').html();
-    contentString = contentString.format(address, wiki.title, wiki.extract);
-    var infoWindow = new google.maps.InfoWindow({
+    contentString = contentString.format(place.geo.formatted_address, place.wiki.title, place.wiki.extract);
+    contentString = contentString.replace(' data-replace=""', ' src="{0}"'.format(src));
+    place.infoWindow = new google.maps.InfoWindow({
       content: contentString,
     });
-    marker.addListener('click', function() {onMarkerSelect(map, marker, infoWindow);});
+    place.marker.addListener('click', function() {onMarkerSelect(place);});
   }
 
-  function onMarkerSelect(map, marker, infoWindow) {
-    infoWindow.open(map, marker);
+  function onMarkerSelect(place) {
+    place.infoWindow.open(place.map, place.marker);
   }
 
   app.onLoad = function() {
