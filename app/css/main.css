@@ -1,0 +1,27 @@
+/* bootstrap fixes */
+
+.nav-stacked {
+	width: 100%;
+}
+
+.navbar-nav > li {
+	float: none;
+}
+
+/* end bootstrap fixes */
+
+.sidebar {
+	position: fixed;
+	top: 50px;
+	bottom: 0;
+	overflow: auto;
+	width: 350px;
+}
+
+#map {
+	position: absolute;
+	left: 350px;
+	right: 0;
+	top: 50px;
+	bottom: 0;
+}
