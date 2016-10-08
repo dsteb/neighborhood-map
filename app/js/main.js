@@ -73,8 +73,7 @@ var app = app || {};
       }, 3000);
       
       // detect viewport size
-      if ($('#viewport-small').is(':visible')) {
-        console.log('SMALL')
+      if ($('#viewport-small').is(':visible') && self.sidebarToggler()) {
         self.sidebarToggler(false);
         setTimeout(function() {
           place.infoWindow.open(place.map, place.marker);

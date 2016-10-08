@@ -10,6 +10,7 @@
 
 img.img-responsive {
   max-width: 100%;
+  padding-right: 10px;
 }
 /* end bootstrap fixes */
 
@@ -35,6 +36,15 @@ img.img-responsive {
   display: none;
 }
 
+.info-window {
+  padding: 20px 0 0 35px;
+}
+
+.desc {
+  padding: 15px 10px 0 0;
+  text-align: justify;
+}
+
 .input-group {
   margin-top: 10px;
 }
@@ -42,11 +52,12 @@ img.img-responsive {
 #viewport-small {
   display: none;
   position: absolute;
-  width: 10px;
-  height: 10px;
-  background: red;
-  z-index: 100;
+  left: -1000px;
+  width: 1px;
+  height: 1px;
 }
+
+
 
 /* Phones */
 @media (max-width: 768px) {
@@ -63,16 +74,16 @@ img.img-responsive {
     left: 0;
   }
 
-  .sidebar.visibleSm {
+  .sidebar.toggle {
     left: 0;  
   }
 
-  #map.visibleSm {
+  #map.toggle {
     left: 80vw;
   }
 }
 
-/* Other */
+/* Tablets */
 @media (min-width: 769px) and (max-width: 992px) {
   .sidebar {
     width: 50vw;
@@ -84,24 +95,43 @@ img.img-responsive {
 
   }
 
-  .sidebar.visibleSm {
+  .sidebar.toggle {
     left: 0;  
   }
 
-  #map.visibleSm {
+  #map.toggle {
     left: 50vw;
   }
 }
 
-/* Other */
-@media (min-width: 993px) {
+/* Desktop */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .sidebar {
+    width: 35vw;
+    left: 0;
+  }
+
+  #map {
+    left: 35vw;
+  }
+
+  .sidebar.toggle {
+    left: -35vw;
+  }
+
+  #map.toggle {
+    left: 0;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1201px) {
   .sidebar {
     width: 350px;
   }
 
   #map {
     left: 350px;
-
   }
 
   .navbar-btn {

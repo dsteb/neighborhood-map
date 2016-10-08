@@ -30,7 +30,7 @@
       </div>
     </nav>
 
-    <aside class="sidebar navbar-inverse" data-bind="css: { visibleSm: sidebarToggler()}">
+    <aside class="sidebar navbar-inverse" data-bind="css: { toggle: sidebarToggler()}">
       <div class="container-fluid">
         <div class="input-group">
           <input class="form-control" placeholder="Name" data-bind="value: filterValue">
@@ -47,15 +47,15 @@
       </div>      
     </aside>
   
-    <div id="map" data-bind="css: { visibleSm: sidebarToggler()}"></div>
+    <div id="map" data-bind="css: { toggle: sidebarToggler()}"></div>
 
     <div id="info-window-template">
-      <div>      
+      <div class="info-window">      
         <div>{0}</div>
         <h1 class="firstHeading">{1}</h1>
         <div>
           <img data-replace="" alt="{1}" title="{1}" class="img-responsive">
-          <p>{2}</p>
+          <p class="desc">{2}</p>
         </div>
       </div>
     </div>
