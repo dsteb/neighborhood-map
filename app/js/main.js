@@ -17,6 +17,7 @@ var app = app || {};
     this.name = place.name;
     this.wikiSearch = place.wikiSearch;
     this.photo = place.photo;
+    this.description = place.description;
   }
 
   Place.cityLocation = {
@@ -95,9 +96,9 @@ var app = app || {};
     var url;
     if (place.photo) {
       url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth={1}&photoreference={0}&key=' + app.key;
-      url = url.format(place.photo.ref, 600 || place.photo.width);
+      url = url.format(place.photo.ref, 630);
     } else {
-      url = 'https://maps.googleapis.com/maps/api/streetview?size=800x300&location={0},{1}&key=' + app.key;
+      url = 'https://maps.googleapis.com/maps/api/streetview?size=630x300&location={0},{1}&key=' + app.key;
       var lat = place.geo.geometry.location.lat;
       var lng = place.geo.geometry.location.lng;
       url = url.format(lat, lng);
@@ -107,7 +108,8 @@ var app = app || {};
 
   function createInfoWindow(place, src) {
     var contentString = $('#info-window-template').html();
-    contentString = contentString.format(place.geo.formatted_address, place.wiki.title, place.wiki.extract);
+    var desc = place.wiki.extract || place.description;
+    contentString = contentString.format(place.geo.formatted_address, place.wiki.title, desc);
     contentString = contentString.replace(' data-replace=""', ' src="{0}"'.format(src));
     place.infoWindow = new google.maps.InfoWindow({
       content: contentString,
