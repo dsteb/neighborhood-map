@@ -1,13 +1,10 @@
 [{
   "name": "Duomo di Milano",
   "wikiSearch": "Milan Cathedral",
-  "image": {
-		"lat": 45.464089,
-		"lng": 9.189981,
-		"heading": 70,
-		"pitch": 25,
-		"fov": 90
+  "photo": {
+    "ref": "CoQBdwAAABAtv_L3N1L42eg4V0hgl-iXpSDhmZH8QOokOCE6MFHzCztLTPu4Qnz4uNtl78jmZpYSzjSQaiSh8A3nMxVBmlyyPRnuuWckHON0DJwzXZ6jQv7f9sOhMm9j6u30NTrbgup-zwQnIwkNbk7NTnqV1IdnE8XmgfW4mCyCYLBrQZ8zEhC-MF6fo4A1y0iROa9EwT-fGhRUh5578PAPS2Gcx17S75rrqsgdhw"
   }
+  
 }, {
   "name": "Piazza Gaia Aulenti"
 }]

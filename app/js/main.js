@@ -16,6 +16,7 @@ var app = app || {};
   function Place(place) {
     this.name = place.name;
     this.wikiSearch = place.wikiSearch;
+    this.photo = place.photo;
   }
 
   Place.cityLocation = {
@@ -91,14 +92,16 @@ var app = app || {};
   }
 
   function getImage(place) {
-    var url = 'https://maps.googleapis.com/maps/api/streetview?size=800x300&location={0},{1}&heading={2}&pitch={3}&fov={4}&key=' + app.key;
-    place.image = place.image || {};
-    var lat = place.image.lat || place.geo.geometry.location.lat;
-    var lng = place.image.lng || place.geo.geometry.location.lng;
-    var heading = place.image.heading || '';
-    var pitch = place.image.pitch || '';
-    var fov = place.image.fov || '';
-    url = url.format(lat, lng,heading, pitch, fov);
+    var url;
+    if (place.photo) {
+      url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth={1}&photoreference={0}&key=' + app.key;
+      url = url.format(place.photo.ref, 600 || place.photo.width);
+    } else {
+      url = 'https://maps.googleapis.com/maps/api/streetview?size=800x300&location={0},{1}&key=' + app.key;
+      var lat = place.geo.geometry.location.lat;
+      var lng = place.geo.geometry.location.lng;
+      url = url.format(lat, lng);
+    }
     createInfoWindow(place, url);
   }
 
