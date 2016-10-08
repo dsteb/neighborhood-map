@@ -59,6 +59,10 @@ var app = app || {};
       })
     };
 
+    self.placeSelect = function(place) {
+      place.infoWindow.open(place.map, place.marker);
+    };
+
     $.get('js/model.json')
       .done(function(data) {processModel(self, data, map);})
       .fail(handleError);      

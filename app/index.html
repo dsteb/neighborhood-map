@@ -42,7 +42,7 @@
           </span>
         </div>
         <ul class="nav navbar-nav nav-pills nav-stacked" data-bind="foreach: places">
-          <li data-bind="visible: visible" ><a href="#" data-bind="text: name"></a></li>
+          <li data-bind="visible: visible, click: $parent.placeSelect" ><a href="#" data-bind="text: name"></a></li>
         </ul>
       </div>      
     </aside>
