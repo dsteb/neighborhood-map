@@ -85,6 +85,9 @@ var app = app || {};
 
     self.toggleSlidebar = function() {
       self.sidebarToggler(!self.sidebarToggler());
+      setTimeout(function() {
+        google.maps.event.trigger(map, 'resize');
+      }, 1000);
     };
 
     $.get('js/model.json')
