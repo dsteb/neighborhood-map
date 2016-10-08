@@ -45,8 +45,7 @@ var app = app || {};
     var self = this;
     self.appName = 'Milan Neighborhood';
     self.places = ko.observableArray();
-    self.sidebarVisibleXs = ko.observable(false);
-    self.sidebarVisible = ko.observable(true);
+    self.sidebarToggler = ko.observable(false);
 
     self.filterValue = ko.observable('');
     self.filter = function() {
@@ -67,18 +66,26 @@ var app = app || {};
         place.active(false); 
         place.infoWindow.close();
       });
-      place.infoWindow.open(place.map, place.marker);
       place.active(true);
       place.marker.setAnimation(google.maps.Animation.BOUNCE);
       setTimeout(function() {
         place.marker.setAnimation(null);
       }, 3000);
-      self.sidebarVisibleXs(false);
+      
+      // detect viewport size
+      if ($('#viewport-small').is(':visible')) {
+        console.log('SMALL')
+        self.sidebarToggler(false);
+        setTimeout(function() {
+          place.infoWindow.open(place.map, place.marker);
+        }, 800);
+      } else {
+        place.infoWindow.open(place.map, place.marker);
+      }
     };
 
     self.toggleSlidebar = function() {
-      self.sidebarVisibleXs(!self.sidebarVisibleXs());
-      self.sidebarVisible(!self.sidebarVisible());
+      self.sidebarToggler(!self.sidebarToggler());
     };
 
     $.get('js/model.json')

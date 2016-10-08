@@ -39,6 +39,15 @@ img.img-responsive {
   margin-top: 10px;
 }
 
+#viewport-small {
+  display: none;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: red;
+  z-index: 100;
+}
+
 /* Phones */
 @media (max-width: 768px) {
   .input-group {
@@ -54,17 +63,38 @@ img.img-responsive {
     left: 0;
   }
 
-  .sidebar.visibleXs {
+  .sidebar.visibleSm {
     left: 0;  
   }
 
-  #map.visibleXs {
+  #map.visibleSm {
     left: 80vw;
   }
 }
 
 /* Other */
-@media (min-width: 768px) {
+@media (min-width: 769px) and (max-width: 992px) {
+  .sidebar {
+    width: 50vw;
+    left: -50vw;
+  }
+
+  #map {
+    left: 0;
+
+  }
+
+  .sidebar.visibleSm {
+    left: 0;  
+  }
+
+  #map.visibleSm {
+    left: 50vw;
+  }
+}
+
+/* Other */
+@media (min-width: 993px) {
   .sidebar {
     width: 350px;
   }

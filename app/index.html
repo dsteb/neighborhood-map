@@ -30,7 +30,7 @@
       </div>
     </nav>
 
-    <aside class="sidebar navbar-inverse" data-bind="css: { visibleXs: sidebarVisibleXs()}">
+    <aside class="sidebar navbar-inverse" data-bind="css: { visibleSm: sidebarToggler()}">
       <div class="container-fluid">
         <div class="input-group">
           <input class="form-control" placeholder="Name" data-bind="value: filterValue">
@@ -47,7 +47,7 @@
       </div>      
     </aside>
   
-    <div id="map" data-bind="css: { visibleXs: sidebarVisibleXs()}"></div>
+    <div id="map" data-bind="css: { visibleSm: sidebarToggler()}"></div>
 
     <div id="info-window-template">
       <div>      
@@ -59,6 +59,8 @@
         </div>
       </div>
     </div>
+
+    <div id="viewport-small" class="visible-xs-block visible-sm-block"></div>
 
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
