@@ -18,6 +18,7 @@ var app = app || {};
     this.wikiSearch = place.wikiSearch;
     this.photo = place.photo;
     this.description = place.description;
+    this.visible = ko.observable(true);
   }
 
   Place.cityLocation = {
@@ -43,6 +44,19 @@ var app = app || {};
     var self = this;
     self.appName = 'Milan Neighborhood';
     self.places = ko.observableArray();
+
+    self.filterValue = ko.observable('');
+    self.filter = function() {
+      var needle = self.filterValue().toLowerCase();
+      console.log(needle, !needle)
+      self.places().forEach(function(place) {
+        if (needle && place.name.toLowerCase().indexOf(needle) === -1) {
+          place.visible(false);
+        } else {
+          place.visible(true);
+        }
+      })
+    };
 
     $.get('js/model.json')
       .done(function(data) {processModel(self, data, map);})

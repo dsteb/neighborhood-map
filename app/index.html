@@ -33,16 +33,16 @@
     <aside class="sidebar navbar-inverse">
       <div class="container-fluid">
         <div class="input-group">
-          <input class="form-control" placeholder="Name">
+          <input class="form-control" placeholder="Name" data-bind="value: filterValue">
           <span class="input-group-btn">
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" data-bind="click: filter">
               <span class="glyphicon glyphicon-filter" aria-hidden="true"></span>
               Filter
             </button>
           </span>
         </div>
         <ul class="nav navbar-nav nav-pills nav-stacked" data-bind="foreach: places">
-          <li><a href="#" data-bind="text: name"></a></li>
+          <li data-bind="visible: visible" ><a href="#" data-bind="text: name"></a></li>
         </ul>
       </div>      
     </aside>
