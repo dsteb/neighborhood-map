@@ -48,12 +48,13 @@ var app = app || {};
     self.filterValue = ko.observable('');
     self.filter = function() {
       var needle = self.filterValue().toLowerCase();
-      console.log(needle, !needle)
       self.places().forEach(function(place) {
         if (needle && place.name.toLowerCase().indexOf(needle) === -1) {
           place.visible(false);
+          place.marker.setMap(null);
         } else {
           place.visible(true);
+          place.marker.setMap(place.map);
         }
       })
     };
