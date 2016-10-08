@@ -67,6 +67,10 @@ var app = app || {};
       });
       place.infoWindow.open(place.map, place.marker);
       place.active(true);
+      place.marker.setAnimation(google.maps.Animation.BOUNCE);
+      setTimeout(function() {
+        place.marker.setAnimation(null);
+      }, 3000);
     };
 
     $.get('js/model.json')
