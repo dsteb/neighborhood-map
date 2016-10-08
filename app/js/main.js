@@ -45,6 +45,8 @@ var app = app || {};
     var self = this;
     self.appName = 'Milan Neighborhood';
     self.places = ko.observableArray();
+    self.sidebarVisibleXs = ko.observable(false);
+    self.sidebarVisible = ko.observable(true);
 
     self.filterValue = ko.observable('');
     self.filter = function() {
@@ -71,6 +73,12 @@ var app = app || {};
       setTimeout(function() {
         place.marker.setAnimation(null);
       }, 3000);
+      self.sidebarVisibleXs(false);
+    };
+
+    self.toggleSlidebar = function() {
+      self.sidebarVisibleXs(!self.sidebarVisibleXs());
+      self.sidebarVisible(!self.sidebarVisible());
     };
 
     $.get('js/model.json')

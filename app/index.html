@@ -24,13 +24,13 @@
         <div class="nabar-header">
           <a href="#" class="navbar-brand" data-bind="text: appName"></a>
         </div>
-        <button type="button" class="btn btn-default navbar-btn" aria-label="left Align">
+        <button type="button" class="btn btn-default navbar-btn" aria-label="left Align" data-bind="click: toggleSlidebar">
           <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
         </button>
       </div>
     </nav>
 
-    <aside class="sidebar navbar-inverse">
+    <aside class="sidebar navbar-inverse" data-bind="css: { visibleXs: sidebarVisibleXs()}">
       <div class="container-fluid">
         <div class="input-group">
           <input class="form-control" placeholder="Name" data-bind="value: filterValue">
@@ -47,14 +47,14 @@
       </div>      
     </aside>
   
-    <div id="map"></div>
+    <div id="map" data-bind="css: { visibleXs: sidebarVisibleXs()}"></div>
 
     <div id="info-window-template">
       <div>      
         <div>{0}</div>
         <h1 class="firstHeading">{1}</h1>
         <div>
-          <img data-replace="" alt="{1}" title="{1}">
+          <img data-replace="" alt="{1}" title="{1}" class="img-responsive">
           <p>{2}</p>
         </div>
       </div>

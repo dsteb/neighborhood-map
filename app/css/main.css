@@ -1,31 +1,80 @@
 /* bootstrap fixes */
 
 .nav-stacked {
-	width: 100%;
+  width: 100%;
 }
 
 .navbar-nav > li {
-	float: none;
+  float: none;
 }
 
+img.img-responsive {
+  max-width: 100%;
+}
 /* end bootstrap fixes */
 
 .sidebar {
-	position: fixed;
-	top: 50px;
-	bottom: 0;
-	overflow: auto;
-	width: 350px;
+  position: fixed;
+  top: 50px;
+  bottom: 0;
+  overflow: auto;
+  transition: 1s;
+  will-change: left;
 }
 
 #map {
-	position: absolute;
-	left: 350px;
-	right: 0;
-	top: 50px;
-	bottom: 0;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  bottom: 0;
+  transition: 1s;
+  will-change: left;
 }
 
 #info-window-template {
-	display: none;
+  display: none;
+}
+
+.input-group {
+  margin-top: 10px;
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .input-group {
+    max-width: 70vw;
+  }
+
+  .sidebar {
+    left: -80vw;
+    width: 80vw;
+  }
+
+  #map {
+    left: 0;
+  }
+
+  .sidebar.visibleXs {
+    left: 0;  
+  }
+
+  #map.visibleXs {
+    left: 80vw;
+  }
+}
+
+/* Other */
+@media (min-width: 768px) {
+  .sidebar {
+    width: 350px;
+  }
+
+  #map {
+    left: 350px;
+
+  }
+
+  .navbar-btn {
+    display: none;
+  }
 }
