@@ -14,4 +14,8 @@ npm install && bower install && grunt
 It will startup the server on port 8000: http://localhost:8000/.
 
 ### Build for production
-
+To build static files for production just run:
+```
+grunt prod
+```
+The destination folder is `dist`.
