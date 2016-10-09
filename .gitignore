@@ -1,5 +1,6 @@
 bower_components/
 dist/
+build/
 
 # Logs
 logs
