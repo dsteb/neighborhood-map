@@ -1,11 +1,32 @@
 [{
   "name": "Duomo di Milano",
   "wikiSearch": "Milan Cathedral",
-  "photo": {
-    "ref": "CoQBdwAAABAtv_L3N1L42eg4V0hgl-iXpSDhmZH8QOokOCE6MFHzCztLTPu4Qnz4uNtl78jmZpYSzjSQaiSh8A3nMxVBmlyyPRnuuWckHON0DJwzXZ6jQv7f9sOhMm9j6u30NTrbgup-zwQnIwkNbk7NTnqV1IdnE8XmgfW4mCyCYLBrQZ8zEhC-MF6fo4A1y0iROa9EwT-fGhRUh5578PAPS2Gcx17S75rrqsgdhw"
-  }
-  
+  "photoref": "CoQBdwAAABAtv_L3N1L42eg4V0hgl-iXpSDhmZH8QOokOCE6MFHzCztLTPu4Qnz4uNtl78jmZpYSzjSQaiSh8A3nMxVBmlyyPRnuuWckHON0DJwzXZ6jQv7f9sOhMm9j6u30NTrbgup-zwQnIwkNbk7NTnqV1IdnE8XmgfW4mCyCYLBrQZ8zEhC-MF6fo4A1y0iROa9EwT-fGhRUh5578PAPS2Gcx17S75rrqsgdhw"
 }, {
   "name": "Piazza Gaia Aulenti",
-  "description": "The Gae Aulenti Piazza is a stylish and beautiful space with sculptural features including a continuous flowing circle of seating surrounding a vast reflecting pool, 60 metres in diameter that reflects the colours of the changing seasons and surrounding buildings. The pool cascades down two floors, the sound of which mitigates the noise pollution of surrounding roads, and creating three beautiful oval cascades that bring daylight and natural ventilation to spaces below. The light wells that it creates connect the square with the retail floor and car parking below, whilst also allowing light and air to penetrate the surrounding towers’ deep footprints."
+  "description": "The Gae Aulenti Piazza is a stylish and beautiful space with sculptural features including a continuous flowing circle of seating surrounding a vast reflecting pool, 60 metres in diameter that reflects the colours of the changing seasons and surrounding buildings. The pool cascades down two floors, the sound of which mitigates the noise pollution of surrounding roads, and creating three beautiful oval cascades that bring daylight and natural ventilation to spaces below. The light wells that it creates connect the square with the retail floor and car parking below, whilst also allowing light and air to penetrate the surrounding towers’ deep footprints.",
+  "photoref": "CoQBdwAAAA3z1wGUvScRIsTPX0HQbkKGdpFYRTqTF3guZ318lqFB9Glr7W743pU0Sj3ZGMsfJRwh1uGeU6FV6YUTiItAoMJ3xMQtm3_LoEQ6fV2DsvNuwBZ98TGO2e5trWPPdAZD9vVDgtjlr0hqPCAyEIJlk_3boA22wtaaByqIjRLl8sXFEhDIhmergRf-wgpYpflFIpDQGhS96qFIAwHakOieHFJIV83JSZ7g2A"
+}, {
+  "name": "San Siro Stadium",
+  "address": "Piazzale Angelo Moratti",
+  "wikiSearch": "San Siro",
+  "photoref": "CoQBcwAAAFlWWFNTSXue12rZDdK_DfsZma-s4cBu1zDiSk2F3VBiFB9lPGVAMGvFg3FPb1ZpQg0DKGAzrRoaFiYHjrUS34c65yV1safymoi1CP2UFNKmUpT8rivnd8JP0C7KT0WUpRdyRWmeiIu4LNKC-n8Ne90XxmewwjFEgByK5v1MjaWeEhAGKaEKCg1if0XlKfe47CB6GhSxULo6XMS9VC0sCNvyDVQv5BEr3Q"
+}, {
+  "name": "Fondazione Prada",
+  "address": "Largo Isarco, 2",
+  "photoref": "CoQBdwAAABhVrvHxHgrwqMjYQlyhrkKzpSsVturqkJPWEhTgtmwc-H6IaMyI7aqI59wScyWNETwGmFbxDaU6TuR7PKyelUmHpeFxJLQkWsYUEz-NrzR-tZ17ZoSuey3zIfu7bUSYV7oyKfeAi05aTCsF1aRu7uQ4nD1BZ8RLI0WpiRV6jn_tEhBf9OT2Nteq6vJw7idw_s72GhS5rCmgklzv_iTF4SjL7XktE_sSRQ"
+}, {
+  "name": "Osteria vecchi sapori",
+  "address": "via Carmagnola, 3, 20159",
+  "description": "Quite good restaurant located not far from piazza Gae Aulenti. The prices are moderate - you can eat in 15-30€ for a person without drinks. All prices and menu are accessible on the <a href=\"http://www.vecchisapori.it/\">website</a>. My favourite dish is \"Testaroli pontremolesi con i funghi\", which is kind of mushroom's ravioli with a cream. It can be a bit difficult without knowing Italian language. It is safier to book a table in the evening."
+}, {
+  "name": "Zero Gravity Trampoline Club",
+  "address": "Via Carlo Valvassori Peroni, 48",
+  "description": "The trampoline club and acrobatic/parkur gym. It has 8 trampolines all together, 2 sportive trampolines with a foam pit. Also it has an outside snowboard jib zone, but it is rarely open. They organize weekly weekend trips to Alps snowboard parks (SnowBus). You can check <a href=\"http://www.zero-gravity.it/\">the website in italian</a>.",
+  "photoref": "CoQBdwAAAPqLwHvVLkMHwYhapuGjK8VvBlfgjufRB8G_FBeyCvILdRKcj_3a8qYASEIe4LFaEFs6m_zQbPSPlK_fwlNFAvO7xqvvDrC6Dzppo7dRsiG0KTrG1mdDQ5pBN9l1kN6ehu-uOSUk6cEv6FRvVwNM0iGl6QjOx2nC-7vnkWonqEtVEhAjJJAyIsxbQFlk43NGRVNCGhRFcbL_7IGj4b1N69UcrFNP_uFR9Q"
+}, {
+  "name": "Wake Paradasie Cable park",
+  "address": "Via Bruno Buozzi",
+  "description": "One of the biggest cableparks in Italy, located near the Linate airport on artificial lake Idroscala. It has quite amount of kickers and a jib line. It is nice place in summer, moreover it works the whole year, even in winter. If you are novice, the price all-inclusive will be around 40€. It can be quite crowded, so it is better to be on opening or on closing time not to spend your riding time staying in the queue. You can read about them on <a href=\"http://milano.wakeparadise.it/\">their website</a>.",
+  "photoref": "CoQBdwAAACIJvUiN77h3-2budr3Y0hQlkdrAG-Ijbpvys6hHl5Q_RR0J16wcyjzgKTMyYaNcKLbuT97cupJNdO5A8tqEkBN65MNz0xIPbrW3g17cN3GyMrZak8TxUHrNmLuxRNlbg2PVOolxrbTXqwW_MdIXD_wAhc452Pmx7r4KW22NqOfgEhBdXGKQNp1fcfacDEKt0TIbGhQFPpe7SvggcbYS4LwFK6Eew5utHA"
 }]

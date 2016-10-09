@@ -14,13 +14,16 @@ var app = app || {};
   app.key = 'AIzaSyAtkSd9kZmhNgLPd6cju7AnqU7MTr4u6ZE';
 
   function Place(place) {
-    this.name = place.name;
-    this.wikiSearch = place.wikiSearch;
-    this.photo = place.photo;
-    this.description = place.description;
+    for (var key in place) {
+      if (place.hasOwnProperty(key)) {
+        this[key] = place[key];
+      }
+    }
     this.visible = ko.observable(true);
     this.active = ko.observable(false);
   }
+
+  Place.city = 'Milan';
 
   Place.cityLocation = {
     lat:  45.464211, 
@@ -105,7 +108,7 @@ var app = app || {};
 
     function getGeoData(place) {
       var url = 'https://maps.googleapis.com/maps/api/geocode/json?address={0}, {1}&key=' + app.key;
-      url = url.format(place.name, Place.city);
+      url = url.format(place.address || place.name, Place.city);
       $.getJSON(url)
         .done(function(data) { createMarker(place, data.results[0]);})
         .fail(handleError);
@@ -139,14 +142,16 @@ var app = app || {};
 
     function getImage(place) {
       var url;
-      if (place.photo) {
+      var maxwidth = 630;
+      var maxheight = 300;
+      if (place.photoref) {
         url = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth={1}&photoreference={0}&key=' + app.key;
-        url = url.format(place.photo.ref, 630);
+        url = url.format(place.photoref, maxwidth);
       } else {
-        url = 'https://maps.googleapis.com/maps/api/streetview?size=630x300&location={0},{1}&key=' + app.key;
+        url = 'https://maps.googleapis.com/maps/api/streetview?size={2}x{3}&location={0},{1}&key=' + app.key;
         var lat = place.geo.geometry.location.lat;
         var lng = place.geo.geometry.location.lng;
-        url = url.format(lat, lng);
+        url = url.format(lat, lng,maxwidth, maxheight);
       }
       createInfoWindow(place, url);
     }
