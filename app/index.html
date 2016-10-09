@@ -6,9 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title data-bind="text: appName">Milan Neighborhood Map</title>
 
-    <!-- Bootstrap -->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--(if target dev)><!-->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <!--<!(endif)-->
+    <!--(if target dist)>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link href="css/main.css" rel="stylesheet">
+    <!(endif)-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,6 +69,7 @@
 
     <div id="viewport-small" class="visible-xs-block visible-sm-block"></div>
 
+    <!--(if target dev)><!-->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -69,6 +77,15 @@
     <!-- endbower -->
 
     <script src="js/main.js"></script>
+    <!--<!(endif)-->
+
+    <!--(if target dist)>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/knockout.js"></script>
+    <script src="js/main.js"></script>
+    <!(endif)-->
+
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtkSd9kZmhNgLPd6cju7AnqU7MTr4u6ZE&callback=app.onLoad">
     </script>
