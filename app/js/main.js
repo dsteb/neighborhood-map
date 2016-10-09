@@ -51,6 +51,13 @@ var app = app || {};
     self.sidebarToggler = ko.observable(false);
 
     self.filterValue = ko.observable('');
+
+    self.onEnter = function(view, event) {
+      if (event.keyCode === 13) {
+        self.filter();
+      }
+    };
+
     self.filter = function() {
       var needle = self.filterValue().toLowerCase();
       self.places().forEach(function(place) {
